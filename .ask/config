@@ -1,0 +1,28 @@
+{
+  "deploy_settings": {
+    "default": {
+      "skill_id": "amzn1.ask.skill.8d189c4e-e290-4846-b0ff-7519207585ff",
+      "was_cloned": false,
+      "merge": {},
+      "resources": {
+        "manifest": {
+          "eTag": "a71ddeee4fd3a12ea785242e231cb07d"
+        },
+        "lambda": [
+          {
+            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:garminConnectFitness",
+            "awsRegion": "eu-west-1",
+            "functionName": "garminConnectFitness",
+            "alexaUsage": [
+              "custom/default"
+            ],
+            "revisionId": "e3874335-0f27-461f-a7f5-bb067fe3cdc3",
+            "codeUri": "src",
+            "handler": "index.handler",
+            "runtime": "nodejs12.x"
+          }
+        ]
+      }
+    }
+  }
+}

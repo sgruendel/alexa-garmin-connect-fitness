@@ -1,0 +1,43 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "name": "GC Fitness",
+          "summary": "Garmin Connect Fitness skill (unofficial)",
+          "description": "Interact with Garmin Connect fitness data.\n\nStart with \"Alexa, open GC Fitness\".\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-garmin-connect-fitness/issues/new.",
+          "examplePhrases": [
+            "Alexa, open GC Fitness",
+            "Alexa, ask GC Fitness for my last workout",
+            "Alexa, ask GC Fitness for my number of steps"
+          ],
+          "keywords": [
+            "garmin",
+            "connect",
+            "fitness"
+          ]
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "TBD",
+      "category": "HEALTH_AND_FITNESS",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "garminConnectFitness",
+          "sourceDir": "src"
+        }
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}
