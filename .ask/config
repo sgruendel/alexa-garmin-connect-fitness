@@ -6,7 +6,7 @@
       "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "a71ddeee4fd3a12ea785242e231cb07d"
+          "eTag": "3b156fe68603feb8c795a123ab85568d"
         },
         "lambda": [
           {
@@ -16,7 +16,7 @@
             "alexaUsage": [
               "custom/default"
             ],
-            "revisionId": "e3874335-0f27-461f-a7f5-bb067fe3cdc3",
+            "revisionId": "40f9cb67-ec4a-4f77-a992-913f51c8df83",
             "codeUri": "src",
             "handler": "index.handler",
             "runtime": "nodejs12.x"

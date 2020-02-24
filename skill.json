@@ -1,9 +1,30 @@
 {
   "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "garminConnectFitness",
+          "sourceDir": "src"
+        }
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "locales": {
+        "en-US": {}
+      },
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false
+    },
     "publishingInformation": {
       "locales": {
         "en-US": {
           "name": "GC Fitness",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/b088/25217c9a724c40a698e0ded6ebc73ad0/APP_ICON?versionId=UTbV8k2Cn_eKYDmrbUc7ysgYPP95kQJk&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200224T080558Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20200224%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=d7f0a2bbeb35c0e8ed1c6cbef6c4ebd09de563afc6c1351004305ad7634e89e2",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/d4d5/b84ab18b1eb64eb1bb42cd61d76f48fe/APP_ICON_LARGE?versionId=MHWLgtcSw53VYVHkmNKBziSFcrwV2Dwv&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200224T080558Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20200224%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=6e800d36765e6874f51a994b158682f2dc3702cf0c7ac248ac332b6b6a8ad06a",
           "summary": "Garmin Connect Fitness skill (unofficial)",
           "description": "Interact with Garmin Connect fitness data.\n\nStart with \"Alexa, open GC Fitness\".\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-garmin-connect-fitness/issues/new.",
           "examplePhrases": [
@@ -22,22 +43,6 @@
       "testingInstructions": "TBD",
       "category": "HEALTH_AND_FITNESS",
       "distributionCountries": []
-    },
-    "apis": {
-      "custom": {
-        "endpoint": {
-          "uri": "garminConnectFitness",
-          "sourceDir": "src"
-        }
-      }
-    },
-    "manifestVersion": "1.0",
-    "privacyAndCompliance": {
-      "allowsPurchases": false,
-      "isExportCompliant": true,
-      "containsAds": false,
-      "isChildDirected": false,
-      "usesPersonalInfo": false
     }
   }
 }
