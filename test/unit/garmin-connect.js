@@ -44,4 +44,13 @@ describe('Garmin Connect', () => {
             expect(response.steps).to.be.a('number');
         });
     });
+
+    describe('#activities()', () => {
+        it('should work', async function() {
+            const response = await gc.activitylistService.activities('7858235', jar, 0, 1);
+            console.log(response);
+            expect(response.activityList).to.be.an('array');
+            expect(response.activityList[0].activityName).to.be.a('string');
+        });
+    });
 });
