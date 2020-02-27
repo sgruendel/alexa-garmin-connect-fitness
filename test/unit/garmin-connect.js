@@ -31,13 +31,6 @@ describe('Garmin Connect', () => {
         });
     });
 
-    describe('#personalInformation()', () => {
-        it('should work', async function() {
-            const response = await gc.personalInformation('sgruendel', jar);
-            expect(response.biometricProfile.userId).to.equal(4182703);
-        });
-    });
-
     describe('#dailySummary()', () => {
         it('should work for date', async function() {
             const response = await gc.wellnessService.dailySummary('7858235', {date: '2020-02-27'}, jar);
