@@ -4,11 +4,9 @@ const cheerio = require('cheerio');
 const request = require('request-promise-native');
 
 const SSO_URL = 'https://sso.garmin.com/sso/signin';
-const GC_URL = 'https://connect.garmin.com/modern';
 
 const ssoRequest = request.defaults({
     url: SSO_URL,
-    resolveWithFullResponse: true,
     qs: {
         service: 'https%3A%2F%2Fconnect.garmin.com%2Fmodern%2F',
         webhost: 'https%3A%2F%2Fconnect.garmin.com%2Fmodern%2F',
@@ -45,16 +43,11 @@ const ssoRequest = request.defaults({
     gzip: true,
 });
 
-const gcRequest = request.defaults({
-    baseUrl: GC_URL,
-    gzip: true,
-    json: true,
-});
-
 var exports = module.exports = {};
 
+exports.wellnessService = require('./wellness-service');
+
 exports.login = async(username, password, locale) => {
-    console.log('logging in using locale "' + locale + '"');
     const gcLocale = locale.replace('-', '_');
     const jar = request.jar();
     let response = await ssoRequest.get({
@@ -63,8 +56,7 @@ exports.login = async(username, password, locale) => {
             locale: gcLocale,
         },
     });
-    console.log('login status ' + response.statusCode);
-    let $ = cheerio.load(response.body);
+    let $ = cheerio.load(response);
     const csrf = $('input[name=_csrf]').attr('value');
 
     response = await ssoRequest.post({
@@ -94,17 +86,43 @@ exports.login = async(username, password, locale) => {
             _csrf: csrf,
         },
     });
-    console.log(response.statusCode);
-    $ = cheerio.load(response.body);
+    $ = cheerio.load(response);
     const statusError = $('div#status.error').text();
-    console.log('error: ', statusError);
+    let responseUrl = response.match(/response_url\s*=\s*[\'"]*(.*)[\'"]/);
 
-    console.log('headers', response.headers['set-cookie']);
-    console.log('jar', jar);
-    console.log('garmin.com', typeof jar.getCookies('https://garmin.com/'));
+    let userPreferences;
+    let socialProfile;
+    if (!statusError) {
+        if (!responseUrl || !responseUrl[1]) {
+            throw new Error('response_url not found');
+        }
+
+        responseUrl = responseUrl[1].replace(/\\/g, '');
+        response = await request.get({
+            url: responseUrl,
+            jar: jar,
+        });
+
+        userPreferences = response.match(/VIEWER_USERPREFERENCES\s*=\s*(.*)/);
+        socialProfile = response.match(/VIEWER_SOCIAL_PROFILE\s*=\s*(.*)/);
+        // window.VIEWER_DASHBOARDS
+        if (!userPreferences || !userPreferences[1]) {
+            throw new Error('VIEWER_USERPREFERENCES not found');
+        }
+        if (!socialProfile || !socialProfile[1]) {
+            throw new Error('VIEWER_SOCIAL_PROFILE not found');
+        }
+
+        /* eslint-disable no-eval */
+        userPreferences = eval(userPreferences[1]);
+        socialProfile = eval(socialProfile[1]);
+        /* eslint no-eval: "error" */
+    }
 
     return {
         error: statusError,
         jar: jar,
+        userPreferences: userPreferences,
+        socialProfile: socialProfile,
     };
 };

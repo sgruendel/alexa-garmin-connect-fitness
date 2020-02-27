@@ -2,10 +2,11 @@
 
 const expect = require('chai').expect;
 
-//const fs = require('fs');
 const gc = require('../../src/garmin-connect');
 
 describe('Garmin Connect', () => {
+
+    let jar;
 
     describe('#login()', () => {
         xit('should fail with wrong locale', async function() {
@@ -21,10 +22,33 @@ describe('Garmin Connect', () => {
 
         it('should work with correct credentials', async function() {
             const response = await gc.login('stefan.gruendel', '83oJ1GBIpr*w', 'de-DE');
-            expect(response.error).to.equal('');
-            expect(response.jar.getCookies('https://garmin.com/')).to.be.an('array');
-            expect(response.jar.getCookies('https://garmin.com/')).to.be.an('array');
-            expect(response.jar.getCookies('https://garmin.com/')).to.have.lengthOf(4);
+            expect(response.error, 'no error').to.equal('');
+            expect(response.jar.getCookies('https://garmin.com/'), 'cookies set').to.be.an('array');
+            expect(response.userPreferences.displayName, 'userPreferences read').to.be.a('string');
+            expect(response.socialProfile.displayName, 'socialProfile has displayName').to.be.a('string');
+            expect(response.socialProfile.id, 'socialProfile has userId').to.be.a('number');
+            jar = response.jar;
+        });
+    });
+
+    describe('#personalInformation()', () => {
+        it('should work', async function() {
+            const response = await gc.personalInformation('sgruendel', jar);
+            expect(response.biometricProfile.userId).to.equal(4182703);
+        });
+    });
+
+    describe('#dailySummary()', () => {
+        it('should work for date', async function() {
+            const response = await gc.wellnessService.dailySummary('7858235', {date: '2020-02-27'}, jar);
+            console.log(response);
+            expect(response.steps).to.be.a('number');
+        });
+
+        it('should work for id', async function() {
+            const response = await gc.wellnessService.dailySummary('7858235', {uuid: '31329d01b0be48ee8f6d6cd1cee1a7dd'}, jar);
+            console.log(response);
+            expect(response.steps).to.be.a('number');
         });
     });
 });
