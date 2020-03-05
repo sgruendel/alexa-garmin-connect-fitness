@@ -34,7 +34,6 @@ exports.hydrationLog = async(userId, date, valueInML, jar) => {
         timestampLocal = date + 'T23:59:59.00';
     }
 
-    console.log('using timestampLocal ' + timestampLocal);
     return gcRequest.put({
         url: '/usersummary/hydration/log',
         headers: {
