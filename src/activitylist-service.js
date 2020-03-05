@@ -6,6 +6,9 @@ const GC_URL = 'https://connect.garmin.com/modern/proxy/activitylist-service';
 
 const gcRequest = request.defaults({
     baseUrl: GC_URL,
+    headers: {
+        NK: 'NT', // seems to be needed
+    },
     gzip: true,
     json: true,
 });
