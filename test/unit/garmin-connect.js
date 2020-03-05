@@ -71,4 +71,19 @@ describe('Garmin Connect', () => {
             expect(response.valueInML).to.equal(previousValueInML - 250);
         });
     });
+
+    describe('weightService#weightLatest()', () => {
+        it('should work', async function() {
+            const response = await gc.weightService.weightLatest(userId, '2020-03-04', jar);
+            console.log(response);
+            expect(response.weight).to.equal(50000);
+        });
+    });
+
+    describe('weightService#userWeight()', () => {
+        it('should work', async function() {
+            const response = await gc.weightService.userWeight(userId, '2020-03-05', 51, jar);
+            expect(response).to.be.undefined;
+        });
+    });
 });

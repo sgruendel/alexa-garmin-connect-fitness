@@ -45,9 +45,10 @@ const ssoRequest = request.defaults({
 
 var exports = module.exports = {};
 
-exports.wellnessService = require('./wellness-service');
 exports.activitylistService = require('./activitylist-service');
 exports.usersummaryService = require('./usersummary-service');
+exports.weightService = require('./weight-service');
+exports.wellnessService = require('./wellness-service');
 
 exports.login = async(username, password, locale) => {
     const gcLocale = locale.replace('-', '_');
