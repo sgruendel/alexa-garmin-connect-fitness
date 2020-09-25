@@ -1,7 +1,7 @@
 'use strict';
 
-const cheerio = require('cheerio');
 const request = require('request-promise-native');
+const cheerio = require('cheerio');
 
 const SSO_URL = 'https://sso.garmin.com/sso/signin';
 
@@ -88,6 +88,7 @@ exports.login = async(username, password, locale) => {
             embed: 'false',
             _csrf: csrf,
         },
+        simple: false, // so it doesn't fail with 401 with wrong credentials
     });
     $ = cheerio.load(response);
     const statusError = $('div#status.error').text();
