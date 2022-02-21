@@ -31,22 +31,22 @@
   },
   "homepage": "https://github.com/sgruendel/alexa-garmin-connect-fitness#readme",
   "dependencies": {
-    "ask-sdk-core": "2.11.0",
-    "ask-sdk-model": "1.37.1",
+    "ask-sdk-core": "2.12.0",
+    "ask-sdk-model": "1.37.2",
     "cheerio": "1.0.0-rc.3",
-    "i18next": "21.6.6",
+    "i18next": "21.6.11",
     "i18next-sprintf-postprocessor": "0.2.2",
     "request": "2.88.2",
     "request-promise-native": "1.0.9",
-    "winston": "3.4.0"
+    "winston": "3.6.0"
   },
   "devDependencies": {
     "alexa-skill-test-framework": "1.2.4",
-    "chai": "4.3.4",
+    "chai": "4.3.6",
     "chai-as-promised": "7.1.1",
-    "eslint": "8.7.0",
+    "eslint": "8.9.0",
     "eslint-config-strongloop": "2.1.0",
-    "mocha": "9.1.4",
+    "mocha": "9.2.1",
     "nyc": "15.1.0"
   },
   "eslintConfig": {
