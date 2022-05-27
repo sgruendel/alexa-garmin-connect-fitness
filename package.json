@@ -34,7 +34,7 @@
     "ask-sdk-core": "2.12.1",
     "ask-sdk-model": "1.38.2",
     "cheerio": "1.0.0-rc.3",
-    "i18next": "21.8.3",
+    "i18next": "21.8.4",
     "i18next-sprintf-postprocessor": "0.2.2",
     "request": "2.88.2",
     "request-promise-native": "1.0.9",
@@ -44,7 +44,7 @@
     "alexa-skill-test-framework": "1.2.4",
     "chai": "4.3.6",
     "chai-as-promised": "7.1.1",
-    "eslint": "8.15.0",
+    "eslint": "8.16.0",
     "eslint-config-strongloop": "2.1.0",
     "mocha": "10.0.0",
     "nyc": "15.1.0"
