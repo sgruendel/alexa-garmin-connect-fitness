@@ -32,9 +32,9 @@
   "homepage": "https://github.com/sgruendel/alexa-garmin-connect-fitness#readme",
   "dependencies": {
     "ask-sdk-core": "2.12.1",
-    "ask-sdk-model": "1.51.0",
+    "ask-sdk-model": "1.56.0",
     "cheerio": "1.0.0-rc.3",
-    "i18next": "22.4.10",
+    "i18next": "22.4.11",
     "i18next-sprintf-postprocessor": "0.2.2",
     "request": "2.88.2",
     "request-promise-native": "1.0.9",
