@@ -38,13 +38,13 @@
     "i18next-sprintf-postprocessor": "0.2.2",
     "request": "2.88.2",
     "request-promise-native": "1.0.9",
-    "winston": "3.10.0"
+    "winston": "3.11.0"
   },
   "devDependencies": {
     "alexa-skill-test-framework": "1.2.4",
-    "chai": "4.3.8",
+    "chai": "4.3.10",
     "chai-as-promised": "7.1.1",
-    "eslint": "8.50.0",
+    "eslint": "8.51.0",
     "eslint-config-strongloop": "2.1.0",
     "mocha": "10.2.0",
     "nyc": "15.1.0"
