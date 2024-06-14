@@ -43,11 +43,11 @@
   "devDependencies": {
     "alexa-skill-test-framework": "1.2.4",
     "chai": "5.1.1",
-    "chai-as-promised": "7.1.2",
+    "chai-as-promised": "8.0.0",
     "eslint": "9.4.0",
     "eslint-config-strongloop": "2.1.0",
     "mocha": "10.4.0",
-    "nyc": "15.1.0"
+    "nyc": "17.0.0"
   },
   "eslintConfig": {
     "parserOptions": {
