@@ -33,7 +33,7 @@
   "dependencies": {
     "ask-sdk-core": "2.14.0",
     "ask-sdk-model": "1.86.0",
-    "cheerio": "1.0.0-rc.3",
+    "cheerio": "1.0.0",
     "i18next": "23.12.2",
     "i18next-sprintf-postprocessor": "0.2.2",
     "request": "2.88.2",
