@@ -44,7 +44,7 @@
         "alexa-skill-test-framework": "^1.2.4",
         "chai": "^6.2.2",
         "chai-as-promised": "^8.0.2",
-        "eslint": "^10.8.0",
+        "eslint": "^10.8.1",
         "eslint-config-strongloop": "^2.1.0",
         "mocha": "^11.8.0",
         "nyc": "^18.0.0"
